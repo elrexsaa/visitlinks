@@ -1,152 +1,157 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elgokk - Links</title>
+    <title>Elgokkk - Links</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        'poppins': ['Poppins', 'sans-serif'],
-                    },
+                    fontFamily: { 'poppins': ['Poppins', 'sans-serif'] },
                     animation: {
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                        'stagger': 'stagger 0.1s ease-out',
-                        'pulse-glow': 'pulse 2s infinite, glow 2s infinite',
+                        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
+                        'glow-pulse': 'glowPulse 2s ease-in-out infinite alternate',
+                        'float-subtle': 'floatSubtle 3s ease-in-out infinite',
                     },
                     keyframes: {
                         fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' },
                         },
-                        stagger: {
-                            '0%': { transform: 'translateX(-20px)' },
-                            '100%': { transform: 'translateX(0)' },
+                        glowPulse: {
+                            '0%': { boxShadow: '0 0 10px rgba(255,255,255,0.3)' },
+                            '100%': { boxShadow: '0 0 20px rgba(255,255,255,0.6)' },
                         },
-                        glow: {
-                            '0%, 100%': { boxShadow: '0 0 5px rgba(255,255,255,0.5)' },
-                            '50%': { boxShadow: '0 0 20px rgba(255,255,255,0.8)' },
+                        floatSubtle: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
                         }
                     }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Poppins', sans-serif; }
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(255,255,255,0.5);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
-        }
+        .glass { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .dark { background: linear-gradient(to-br, #0f172a, #1e293b, #334155); color: #f1f5f9; }
+        .dark .glass { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1); }
+        .parallax { background-attachment: fixed; background-size: cover; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-500 via-purple-600 to-indigo-700 text-white overflow-x-hidden relative">
-    <!-- Background Particles untuk efek hidup -->
-    <div class="particles" id="particles"></div>
-    
-    <div class="container max-w-md w-full px-4 text-center relative z-10">
-        <!-- Foto Profil dengan Animasi -->
-        <div class="profile-photo mb-6 animate-pulse-glow">
-            <img src="elga.JPG" alt="Profil Anda" class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto object-cover border-4 border-white/30 shadow-2xl transition-all duration-500 hover:scale-110 hover:shadow-white/50">
-        </div>
-        
-        <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg animate-fade-in-up">Elgaaa</h1>
-        <p class="text-lg md:text-xl font-light opacity-90 mb-10 animate-fade-in-up animation-delay-200">Apa Aja Ada Men.</p>
-        
-        <!-- Links dengan Staggered Animation -->
-        <div class="links-container space-y-4">
-            <a href="https://lynk.id" class="link-card block bg-white/10 backdrop-blur-md rounded-2xl p-6 no-underline text-white flex items-center transition-all duration-500 ease-in-out border border-white/20 hover:-translate-y-3 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50 animate-fade-in-up animation-delay-400" target="_blank" style="animation-fill-mode: forwards;">
-                <div class="link-icon w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mr-4 text-lg animate-stagger">🔗</div>
-                <div class="link-text flex-1 text-left">
-                    <div class="link-title font-semibold text-lg">Lynk.id</div>
-                    <div class="link-desc text-sm opacity-80 mt-1">Portofolio utama & kontak</div>
-                </div>
-            </a>
-            
-            <a href="https://example.com/website2" class="link-card block bg-white/10 backdrop-blur-md rounded-2xl p-6 no-underline text-white flex items-center transition-all duration-500 ease-in-out border border-white/20 hover:-translate-y-3 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50 animate-fade-in-up animation-delay-600" target="_blank" style="animation-fill-mode: forwards;">
-                <div class="link-icon w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mr-4 text-lg animate-stagger">🌐</div>
-                <div class="link-text flex-1 text-left">
-                    <div class="link-title font-semibold text-lg">Website Pribadi</div>
-                    <div class="link-desc text-sm opacity-80 mt-1">Blog dan cerita saya</div>
-                </div>
-            </a>
-            
-            <a href="https://example.com/shop" class="link-card block bg-white/10 backdrop-blur-md rounded-2xl p-6 no-underline text-white flex items-center transition-all duration-500 ease-in-out border border-white/20 hover:-translate-y-3 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50 animate-fade-in-up animation-delay-800" target="_blank" style="animation-fill-mode: forwards;">
-                <div class="link-icon w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mr-4 text-lg animate-stagger">🛒</div>
-                <div class="link-text flex-1 text-left">
-                    <div class="link-title font-semibold text-lg">Toko Online</div>
-                    <div class="link-desc text-sm opacity-80 mt-1">Produk favorit & promo</div>
-                </div>
-            </a>
-            
-            <a href="https://instagram.com/username" class="link-card block bg-white/10 backdrop-blur-md rounded-2xl p-6 no-underline text-white flex items-center transition-all duration-500 ease-in-out border border-white/20 hover:-translate-y-3 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50 animate-fade-in-up animation-delay-1000" target="_blank" style="animation-fill-mode: forwards;">
-                <div class="link-icon w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mr-4 text-lg animate-stagger">📸</div>
-                <div class="link-text flex-1 text-left">
-                    <div class="link-title font-semibold text-lg">Instagram</div>
-                    <div class="link-desc text-sm opacity-80 mt-1">Update harian visual</div>
-                </div>
-            </a>
-        </div>
-        
-        <!-- Tambah link lain dengan copy-paste & sesuaikan delay (e.g., animation-delay-1200) -->
-        
-        <p class="footer mt-10 text-sm opacity-70 animate-fade-in-up animation-delay-1200">Copyright 2025 | Elrexsaa</p>
+<body class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-800 via-indigo-900 to-slate-900 text-white overflow-x-hidden relative">
+    <!-- Dark Mode Toggle -->
+    <button id="dark-toggle" class="fixed top-4 right-4 z-50 p-3 glass rounded-full text-xl transition-all duration-300 hover:scale-110 animate-glow-pulse">
+        <span class="dark:hidden">🌙</span>
+        <span class="hidden dark:inline">☀️</span>
+    </button>
+
+    <!-- Particles Subtle untuk Depth (Tidak Lebay) -->
+    <div class="particles fixed inset-0 pointer-events-none z-0 opacity-20">
+        <!-- JS akan generate -->
     </div>
-    
+
+    <div class="container max-w-md w-full px-4 py-8 text-center relative z-10 space-y-8 animate-fade-in-up">
+        <!-- Foto Profil dengan Float Subtle -->
+        <div class="profile mx-auto animate-float-subtle">
+            <img src="elga.JPG" alt="Profil Anda" class="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4 border-white/20 shadow-xl transition-all duration-500 hover:scale-110 hover:shadow-glow-pulse mx-auto">
+        </div>
+
+        <!-- Header Bold & Personalized -->
+        <div class="space-y-2">
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tight animate-fade-in-up animation-delay-200">Elgaaa</h1>
+            <p id="greeting" class="text-lg md:text-xl font-medium opacity-90 animate-fade-in-up animation-delay-400">Hekel Pro Wibu Tzy.</p>
+        </div>
+
+        <!-- Links Glassmorphism dengan Staggered Animasi -->
+        <div class="links space-y-4">
+            <a href="https://lynk.id" class="link-card block glass rounded-3xl p-6 no-underline text-white flex items-center transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-105 hover:shadow-2xl animate-fade-in-up animation-delay-600" target="_blank" data-category="Portofolio">
+                <div class="link-icon w-12 h-12 glass rounded-full flex items-center justify-center mr-4 text-xl animate-float-subtle">🔗</div>
+                <div class="flex-1 text-left">
+                    <div class="font-semibold text-lg">Lynk.id</div>
+                    <div class="text-sm opacity-80 mt-1">Portofolio utama & kontak</div>
+                </div>
+            </a>
+            <a href="https://example.com/website2" class="link-card block glass rounded-3xl p-6 no-underline text-white flex items-center transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-105 hover:shadow-2xl animate-fade-in-up animation-delay-800" target="_blank" data-category="Website">
+                <div class="link-icon w-12 h-12 glass rounded-full flex items-center justify-center mr-4 text-xl animate-float-subtle">🌐</div>
+                <div class="flex-1 text-left">
+                    <div class="font-semibold text-lg">Website Pribadi</div>
+                    <div class="text-sm opacity-80 mt-1">Blog dan cerita saya</div>
+                </div>
+            </a>
+            <a href="https://example.com/shop" class="link-card block glass rounded-3xl p-6 no-underline text-white flex items-center transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-105 hover:shadow-2xl animate-fade-in-up animation-delay-1000" target="_blank" data-category="Shop">
+                <div class="link-icon w-12 h-12 glass rounded-full flex items-center justify-center mr-4 text-xl animate-float-subtle">🛒</div>
+                <div class="flex-1 text-left">
+                    <div class="font-semibold text-lg">Toko Online</div>
+                    <div class="text-sm opacity-80 mt-1">Produk favorit & promo</div>
+                </div>
+            </a>
+            <a href="https://instagram.com/username" class="link-card block glass rounded-3xl p-6 no-underline text-white flex items-center transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-105 hover:shadow-2xl animate-fade-in-up animation-delay-1200" target="_blank" data-category="Sosial">
+                <div class="link-icon w-12 h-12 glass rounded-full flex items-center justify-center mr-4 text-xl animate-float-subtle">📸</div>
+                <div class="flex-1 text-left">
+                    <div class="font-semibold text-lg">Instagram</div>
+                    <div class="text-sm opacity-80 mt-1">Update harian visual</div>
+                </div>
+            </a>
+        </div>
+
+        <!-- QR Code dengan Animasi -->
+        <div class="qr glass rounded-2xl p-4 animate-fade-in-up animation-delay-1400">
+            <p class="text-sm opacity-80 mb-3">Scan untuk akses instan</p>
+            <img id="qr-img" src="" alt="QR Code" class="mx-auto w-20 h-20 rounded-lg transition-transform duration-300 hover:scale-110">
+        </div>
+
+        <!-- Footer Elegan -->
+        <p class="text-sm opacity-70 animate-fade-in-up animation-delay-1600">ElTech2025</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <script>
-        // Generate particles untuk background hidup
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            for (let i = 0; i < 20; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 6 + 's';
-                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
-                particlesContainer.appendChild(particle);
-            }
+        // Dark Mode
+        const html = document.documentElement;
+        document.getElementById('dark-toggle').addEventListener('click', () => html.classList.toggle('dark'));
+
+        // Personalized Greeting
+        const hour = new Date().getHours();
+        const greet = hour < 12 ? 'Selamat pagi!' : hour < 18 ? 'Selamat siang!' : 'Selamat malam!';
+        document.getElementById('greeting').innerHTML += `<br><span class="text-sm opacity-70">${greet}</span>`;
+
+        // QR Generate (Ganti dengan URL host Anda)
+        const pageUrl = window.location.href;
+        document.getElementById('qr-img').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(pageUrl)}`;
+
+        // Subtle Particles (5-10 aja, tidak ramai)
+        const particles = document.querySelector('.particles');
+        for (let i = 0; i < 8; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'absolute w-1 h-1 bg-white/30 rounded-full animate-float-subtle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 3 + 's';
+            particles.appendChild(particle);
         }
-        createParticles();
-        
-        // Stagger animation untuk cards (delay bertahap)
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.animationDelay = `${index * 150}ms`;
-                        entry.target.classList.add('animate-fade-in-up');
-                    }, 100);
-                }
+
+        // Confetti on Click (Ringan, 20 particles)
+        document.querySelectorAll('.link-card').forEach(card => {
+            card.addEventListener('click', () => {
+                confetti({ particleCount: 20, spread: 50, origin: { y: 0.7 }, colors: ['#a5b4fc', '#c4b5fd'] });
             });
         });
-        document.querySelectorAll('.link-card').forEach(card => observer.observe(card));
-        
-        // Parallax ringan untuk background
+
+        // Scroll-Triggered Animasi
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.style.animationPlayState = 'running';
+            });
+        });
+        document.querySelectorAll('.animate-fade-in-up').forEach(el => observer.observe(el));
+
+        // Parallax Subtle
         window.addEventListener('scroll', () => {
-            document.body.style.backgroundPositionY = window.scrollY * 0.5 + 'px';
+            document.body.style.backgroundPositionY = window.scrollY * 0.3 + 'px';
         });
     </script>
 </body>
